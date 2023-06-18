@@ -3,15 +3,21 @@ import "./App.scss";
 import "./components/sidebar/Sidebar.scss";
 import Sidebar from "./components/sidebar/Sidebar";
 import Chat from "./components/chat/Chat";
+import Login from "./components/login/Login";
 
 function App() {
   return (
     <div className="App">
-      {/* sidebar */}
-      <Sidebar />
-
-      {/* chat */}
-      <Chat />
+      {user ? (
+        <>
+          <Sidebar />
+          <Chat />
+        </>
+      ) : (
+        <>
+          <Login />
+        </>
+      )}
     </div>
   );
 }
