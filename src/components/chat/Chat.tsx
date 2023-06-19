@@ -87,7 +87,7 @@ const Chat = () => {
         user: user,
       }
     );
-    console.log(docRef);
+    setInputText("");
   };
 
   return (
@@ -112,6 +112,7 @@ const Chat = () => {
         <AddCircleOutlineIcon />
         <form>
           <input
+            value={inputText}
             type="text"
             placeholder="Udemyへのメッセージを送信"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
