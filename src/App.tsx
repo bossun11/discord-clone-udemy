@@ -10,7 +10,7 @@ import { useDispatch } from "react-redux";
 import { login, logout } from "./features/userSlice";
 
 function App() {
-  const user = useAppSelector((state) => state.user);
+  const user = useAppSelector((state) => state.user.user);
 
   const dispatch = useDispatch();
 
