@@ -16,6 +16,8 @@ import {
   addDoc,
   collection,
   onSnapshot,
+  orderBy,
+  query,
   serverTimestamp,
 } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -46,7 +48,12 @@ const Chat = () => {
       "messages"
     );
 
-    onSnapshot(collectionRef, (snapshot) => {
+    const collectionRefOrder = query(
+      collectionRef,
+      orderBy("timestamp", "desc")
+    );
+
+    onSnapshot(collectionRefOrder, (snapshot) => {
       let result: Messages[] = [];
       snapshot.docs.forEach((doc) => {
         result.push({
